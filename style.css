@@ -1,0 +1,54 @@
+.container{
+	background-color: #d3d3d3;
+	max-width: 1250px;
+	margin: 25px auto;
+	display: grid;
+	grid-gap: 30px 10px;
+	width: 100%;
+	height: 100%;
+	/*align-items: center;*/
+	justify-content: center;
+	font-family: sans-serif;
+}
+
+header, nav, sidebar, footer{
+	border: 2px black solid;
+}
+
+header{
+	text-align: center;
+	grid-row: 1/2;
+	grid-column: 2/3;
+	height: max-content;
+}
+
+nav{
+	text-align: center;
+	grid-row: 2/3;
+	grid-column: 1/2;
+	height: max-content;
+	max-width: 200px;
+}
+
+canvas{
+	border: 2px yellow solid;
+	grid-row: 2/3;
+	grid-column: 2/3;
+	background-color: gray;
+}
+
+sidebar{
+	text-align: center;
+	grid-row: 2/3;
+	grid-column: 3/4;
+	max-height: 400px;
+	max-width: 250px;
+	overflow-y: scroll;
+}
+
+footer{
+	text-align: center;
+	grid-row: 3/4;
+	grid-column: 2/3;
+	height: max-content;
+}
