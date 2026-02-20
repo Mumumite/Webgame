@@ -85,20 +85,66 @@ webgl.uniformMatrix4fv(worldUniform, webgl.FALSE, worldMatrix);
 webgl.uniformMatrix4fv(viewUniform, webgl.FALSE, viewMatrix);
 webgl.uniformMatrix4fv(projectionUniform, webgl.FALSE, projectionMatrix);
 
+var translationMatrix = new Float32Array(16);
+var rotationMatrix = new Float32Array(16);
+var scaleMatrix = new Float32Array(16);
+
 var identityMatrix = new Float32Array(16);
 glMatrix.mat4.identity(identityMatrix);
 
+var x = 0;
+var y = 0;
+var z = 0;
+
 var angle = 0;
+
+var input = function(){
+	if(w == true){
+		z += 0.1;
+	}
+	if(a == true){
+		x += 0.1;
+	}
+	if(s == true){
+		z -= 0.1;
+	}
+	if(d == true){
+		x -= 0.1;
+	}
+	if(space == true){
+		y += 0.1;
+	}
+	if(q == true){
+		y -= 0.1;
+	}
+};
+
 var loop = function(){
 	/*console.log("the render loop is looping");*/
 	webgl.clear(webgl.COLOR_BUFFER_BIT | webgl.DEPTH_BUFFER_BIT);
 	
+	input();
+	
 	angle = performance.now() / 1000 / 2 * 2 * Math.PI;
 	
-	glMatrix.mat4.rotate(worldMatrix, identityMatrix, angle, [1, 0, 0]);
+	glMatrix.mat4.translate(translationMatrix, identityMatrix, [0, 8, 8]);
+	glMatrix.mat4.rotate(rotationMatrix, identityMatrix, angle, [0, 1, 0]);
+	
+	glMatrix.mat4.multiply(worldMatrix, translationMatrix, rotationMatrix);
+	
 	webgl.uniformMatrix4fv(worldUniform, webgl.FALSE, worldMatrix);
 	
 	webgl.drawArrays(webgl.TRIANGLES, 0, 3);
+	
+	glMatrix.mat4.translate(translationMatrix, identityMatrix, [x, y, z]);
+	glMatrix.mat4.rotate(rotationMatrix, identityMatrix, angle, [1, 0, 0]);
+	
+	glMatrix.mat4.multiply(worldMatrix, translationMatrix, rotationMatrix);
+	
+	webgl.uniformMatrix4fv(worldUniform, webgl.FALSE, worldMatrix);
+	
+	webgl.drawArrays(webgl.TRIANGLES, 0, 3);
+	
 	requestAnimationFrame(loop);
 };
 requestAnimationFrame(loop);
