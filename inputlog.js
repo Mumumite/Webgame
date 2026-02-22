@@ -4,45 +4,52 @@ var s = false
 var d = false
 var space = false
 var q = false
+var shift = false
 
 window.addEventListener("keydown", function(key){
-		if(key.key == "w"){
+		if(key.code == "KeyW"){
 			w = true;
 		}
-		if(key.key == "a"){
+		if(key.code == "KeyA"){
 			a = true;
 		}
-		if(key.key == "s"){
+		if(key.code == "KeyS"){
 			s = true;
 		}
-		if(key.key == "d"){
+		if(key.code == "KeyD"){
 			d = true;
 		}
-		if(key.key == " "){
+		if(key.code == "Space"){
 			space = true;
 		}
-		if(key.key == "q"){
+		if(key.code == "KeyQ"){
 			q = true;
+		}
+		if(key.code == "ShiftLeft"){
+			shift = true;
 		}
 })
 
 window.addEventListener("keyup", function(key){
-		if(key.key == "w"){
+		if(key.code == "KeyW"){
 			w = false;
 		}
-		if(key.key == "a"){
+		if(key.code == "KeyA"){
 			a = false;
 		}
-		if(key.key == "s"){
+		if(key.code == "KeyS"){
 			s = false;
 		}
-		if(key.key == "d"){
+		if(key.code == "KeyD"){
 			d = false;
 		}
-		if(key.key == " "){
+		if(key.code == "Space"){
 			space = false;
 		}
-		if(key.key == "q"){
+		if(key.code == "KeyQ"){
 			q = false;
+		}
+		if(key.code == "ShiftLeft"){
+			shift = false;
 		}
 })
