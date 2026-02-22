@@ -28,6 +28,7 @@ nav{
 	grid-column: 1/2;
 	height: max-content;
 	max-width: 200px;
+	width: 250px;
 }
 
 canvas{
