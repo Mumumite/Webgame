@@ -142,8 +142,6 @@ var loop = function(){
 	
 	input();
 	
-	console.log(x);
-	
 	angle = performance.now() / 1000 / 2 * 2 * Math.PI;
 	
 	glMatrix.mat4.translate(translationMatrix, identityMatrix, [0, 0, 8]);
