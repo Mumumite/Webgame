@@ -96,6 +96,8 @@ var x = 0;
 var y = 0;
 var z = 0;
 
+var canPlayerMove = true;
+
 var walkSpeed = 0.05;
 var sprintSpeed = 0.1;
 var speed = walkSpeed;
@@ -105,24 +107,24 @@ var angle2 = 0;
 
 var input = function(){
 	if(w == true){
-		if(y < 4.4){
+		if(y < 4.4 && canPlayerMove){
 			y += speed;
 			angle2 = 360;
 		}
 	}
-	if(a == true){
+	if(a == true && canPlayerMove){
 		if(x < 6){
 			x += speed;
 			angle2 = 270;
 		}
 	}
-	if(s == true){
+	if(s == true && canPlayerMove){
 		if(y > -4.4){
 			y -= speed;
 			angle2 = 180;
 		}
 	}
-	if(d == true){
+	if(d == true && canPlayerMove){
 		if(x > -6){
 			x -= speed;
 			angle2 = 90;
