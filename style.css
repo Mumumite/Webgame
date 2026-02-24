@@ -11,7 +11,7 @@
 	font-family: sans-serif;
 }
 
-header, instructions, nav, sidebar, footer{
+header, nav, sidebar, footer{
 	border: 2px black solid;
 }
 
@@ -23,6 +23,7 @@ header{
 }
 
 instructions{
+	border: 2px red solid;
 	text-align: center;
 	grid-row: 1/2;
 	grid-column: 3/4;
