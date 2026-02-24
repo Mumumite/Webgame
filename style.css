@@ -11,7 +11,7 @@
 	font-family: sans-serif;
 }
 
-header, nav, sidebar, footer{
+header, instructions, nav, sidebar, footer{
 	border: 2px black solid;
 }
 
@@ -22,12 +22,19 @@ header{
 	height: max-content;
 }
 
+instructions{
+	text-align: center;
+	grid-row: 1/2;
+	grid-column: 3/4;
+	height: max-content;
+	width: 250px;
+}
+
 nav{
 	text-align: center;
 	grid-row: 2/3;
 	grid-column: 1/2;
 	height: max-content;
-	max-width: 200px;
 	width: 250px;
 }
 
