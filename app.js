@@ -92,8 +92,8 @@ var scaleMatrix = new Float32Array(16);
 var identityMatrix = new Float32Array(16);
 glMatrix.mat4.identity(identityMatrix);
 
-var x = 0;
-var y = 0;
+var x = Math.random() * (6 - -6) + -6;
+var y = Math.random() * (4.4 - -4.4) + -4.4;
 var z = 0;
 
 var canPlayerMove = true;
@@ -154,6 +154,8 @@ var loop = function(){
 	webgl.uniformMatrix4fv(worldUniform, webgl.FALSE, worldMatrix);
 	
 	webgl.drawArrays(webgl.TRIANGLES, 0, 3);
+	
+	
 	
 	glMatrix.mat4.translate(translationMatrix, identityMatrix, [x, y, z]);
 	glMatrix.mat4.rotate(rotationMatrix, identityMatrix, (angle2 * Math.PI / 180), [0, 0, 1]);
